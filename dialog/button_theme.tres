@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c266d4l1tnptc"]
+
+[ext_resource type="FontVariation" uid="uid://boeio54c73dnf" path="res://dialog/font variation.tres" id="1_mg1mc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_np5j1"]
+content_margin_left = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjlj8"]
+content_margin_left = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mg1mc"]
+content_margin_left = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lje6u"]
+content_margin_left = 16.0
+
+[resource]
+Button/colors/font_focus_color = Color(0.941176, 0.909804, 0, 1)
+Button/colors/font_hover_color = Color(0.941176, 0.909804, 0, 1)
+Button/fonts/font = ExtResource("1_mg1mc")
+Button/styles/focus = SubResource("StyleBoxEmpty_np5j1")
+Button/styles/hover = SubResource("StyleBoxEmpty_kjlj8")
+Button/styles/normal = SubResource("StyleBoxEmpty_mg1mc")
+Button/styles/pressed = SubResource("StyleBoxEmpty_lje6u")
+VBoxContainer/constants/separation = 12

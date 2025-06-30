@@ -1,0 +1,178 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyifa05piivn7"]
+
+[ext_resource type="Script" uid="uid://yxx0go22kiab" path="res://global/transition/transitions.gd" id="1_mki8g"]
+[ext_resource type="Shader" uid="uid://hjqiix2g76dc" path="res://global/transition/mosaic.gdshader" id="2_gxpxw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4150"]
+shader = ExtResource("2_gxpxw")
+shader_parameter/block_size = 1
+
+[sub_resource type="Animation" id="Animation_gxpxw"]
+resource_name = "FadeIn"
+length = 0.26667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mosaic:material:shader_parameter/block_size")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_ycsk6"]
+resource_name = "FadeOut"
+length = 0.26667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mosaic:material:shader_parameter/block_size")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_b4150"]
+resource_name = "MosaicFadeIn"
+length = 0.26667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mosaic:material:shader_parameter/block_size")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [33, 29, 25, 21, 17, 13, 9, 5, 1]
+}
+
+[sub_resource type="Animation" id="Animation_hcaal"]
+resource_name = "MosaicFadeOut"
+length = 0.26667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mosaic:material:shader_parameter/block_size")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1, 5, 9, 13, 17, 21, 25, 29, 33]
+}
+
+[sub_resource type="Animation" id="Animation_mki8g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mosaic:material:shader_parameter/block_size")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mki8g"]
+_data = {
+&"FadeIn": SubResource("Animation_gxpxw"),
+&"FadeOut": SubResource("Animation_ycsk6"),
+&"MosaicFadeIn": SubResource("Animation_b4150"),
+&"MosaicFadeOut": SubResource("Animation_hcaal"),
+&"RESET": SubResource("Animation_mki8g")
+}
+
+[node name="Transitions" type="CanvasLayer"]
+script = ExtResource("1_mki8g")
+
+[node name="Mosaic" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_b4150")
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 296.0
+offset_bottom = 168.0
+
+[node name="Fade" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 296.0
+offset_bottom = 168.0
+color = Color(0, 0, 0, 0)
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mki8g")
+}

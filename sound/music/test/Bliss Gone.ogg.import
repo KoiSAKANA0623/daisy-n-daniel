@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cou2o5kqpkbsm"
+path="res://.godot/imported/Bliss Gone.ogg-acae9f33d4b62b512fb2b88997a660fa.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/music/test/Bliss Gone.ogg"
+dest_files=["res://.godot/imported/Bliss Gone.ogg-acae9f33d4b62b512fb2b88997a660fa.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=19.2
+bpm=0.0
+beat_count=0
+bar_beats=4

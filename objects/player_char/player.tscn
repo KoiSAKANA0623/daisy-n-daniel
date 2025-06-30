@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c16j4xxnrsex0"]
+
+[ext_resource type="Script" uid="uid://br77hiuf1vewg" path="res://objects/player_char/player.gd" id="1_hkbba"]
+[ext_resource type="PackedScene" uid="uid://b0n2uu8nc6f4q" path="res://objects/player_char/sam/sam.tscn" id="2_hkbba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1wf7"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkbba"]
+size = Vector2(10, 10)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite")]
+script = ExtResource("1_hkbba")
+PlayerSprite = NodePath("Sam")
+
+[node name="Sam" parent="." instance=ExtResource("2_hkbba")]
+
+[node name="PlayerCol" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s1wf7")
+
+[node name="MoveCheckRays" type="Node2D" parent="."]
+
+[node name="Up_Ray" type="RayCast2D" parent="MoveCheckRays"]
+target_position = Vector2(0, -18)
+
+[node name="Down_Ray" type="RayCast2D" parent="MoveCheckRays"]
+target_position = Vector2(0, 18)
+
+[node name="Left_Ray" type="RayCast2D" parent="MoveCheckRays"]
+target_position = Vector2(-18, 0)
+
+[node name="Right_Ray" type="RayCast2D" parent="MoveCheckRays"]
+target_position = Vector2(18, 0)
+
+[node name="DoorCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorCheck"]
+shape = SubResource("RectangleShape2D_hkbba")
+debug_color = Color(0.379597, 0.602081, 0.341972, 0.42)
+
+[connection signal="area_entered" from="DoorCheck" to="." method="_on_door_check_entered"]

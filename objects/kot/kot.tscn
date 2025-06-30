@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmtyxvv21mrce"]
+
+[ext_resource type="Texture2D" uid="uid://by3fijy7eff4g" path="res://objects/kot/kot.png" id="1_n5x78"]
+[ext_resource type="PackedScene" uid="uid://cmaxjlkaqy31y" path="res://objects/npc/interact_collision.tscn" id="2_kubkr"]
+[ext_resource type="AudioStream" uid="uid://byegaeksqjjjh" path="res://sound/text/Kot/reow.wav" id="2_vmchu"]
+[ext_resource type="Script" uid="uid://dde70ksglify6" path="res://objects/y_sort.gd" id="4_7wbwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kubkr"]
+size = Vector2(14, 14)
+
+[node name="Kot" type="Node2D"]
+z_as_relative = false
+
+[node name="InteractCollision" parent="." node_paths=PackedStringArray("NPC") instance=ExtResource("2_kubkr")]
+NPC = NodePath("..")
+sound = ExtResource("2_vmchu")
+widthC = 18
+heightC = 18
+
+[node name="Kot" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("1_n5x78")
+
+[node name="SolidCol" type="StaticBody2D" parent="."]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolidCol"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_kubkr")
+
+[node name="YSortNode" type="Node" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("4_7wbwb")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://dde70ksglify6"

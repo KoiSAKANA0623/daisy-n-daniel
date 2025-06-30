@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnl6uwiebvxlu"]
+
+[ext_resource type="Script" uid="uid://cpvkjvs2ydlqb" path="res://global/scene_manager.gd" id="1_3iojs"]
+[ext_resource type="PackedScene" uid="uid://24ic03akwe1x" path="res://scenes/tst_/test_scene.tscn" id="2_6xus3"]
+[ext_resource type="PackedScene" uid="uid://c16j4xxnrsex0" path="res://objects/player_char/player.tscn" id="3_u6j3n"]
+[ext_resource type="PackedScene" uid="uid://c7h4rd5r3wwf6" path="res://objects/player_char/daniel/daniel.tscn" id="3_y5dew"]
+[ext_resource type="PackedScene" uid="uid://brh0iakgdlfie" path="res://objects/camera/camera.tscn" id="4_ach3i"]
+[ext_resource type="PackedScene" uid="uid://cyifa05piivn7" path="res://global/transition/transitions.tscn" id="5_6ebau"]
+[ext_resource type="PackedScene" uid="uid://b4hobvuoxv6vs" path="res://objects/player_char/daisy/daisy.tscn" id="5_kea51"]
+[ext_resource type="PackedScene" uid="uid://piv1lxcidn51" path="res://sound/audio.tscn" id="6_6c5vy"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_3iojs")
+
+[node name="LoadedScene" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="test" parent="LoadedScene" instance=ExtResource("2_6xus3")]
+
+[node name="Daniel" parent="LoadedScene" instance=ExtResource("3_y5dew")]
+position = Vector2(8, 8)
+
+[node name="Daisy" parent="LoadedScene" instance=ExtResource("5_kea51")]
+position = Vector2(8, 8)
+
+[node name="Player" parent="LoadedScene" node_paths=PackedStringArray("follow_1", "follow_2") instance=ExtResource("3_u6j3n")]
+position = Vector2(56, 56)
+follow_1 = NodePath("../Daisy")
+follow_2 = NodePath("../Daniel")
+
+[node name="Camera" parent="LoadedScene" node_paths=PackedStringArray("Focus") instance=ExtResource("4_ach3i")]
+Focus = NodePath("../Player")
+
+[node name="Transitions" parent="." instance=ExtResource("5_6ebau")]
+
+[node name="Audio" parent="." instance=ExtResource("6_6c5vy")]

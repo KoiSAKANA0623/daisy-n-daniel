@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://mrwu4oy5etai"]
+
+[ext_resource type="Script" uid="uid://b2fiv7x18u5hy" path="res://dialog/dialog_scene.gd" id="1_6ivg3"]
+[ext_resource type="Texture2D" uid="uid://dxa3hxh5qjuml" path="res://dialog/art/box.png" id="2_xqdi7"]
+[ext_resource type="FontVariation" uid="uid://boeio54c73dnf" path="res://dialog/font variation.tres" id="3_36rwo"]
+[ext_resource type="Texture2D" uid="uid://clnbca0k5lmxy" path="res://dialog/art/arrow.png" id="4_gnprr"]
+[ext_resource type="Theme" uid="uid://c266d4l1tnptc" path="res://dialog/button_theme.tres" id="5_36rwo"]
+[ext_resource type="AudioStream" uid="uid://dt1cihk1a564j" path="res://sound/text/clear.wav" id="5_yn8wi"]
+
+[node name="DialogueScene" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_6ivg3")
+
+[node name="DialogUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 288.0
+offset_bottom = 162.0
+
+[node name="MainBox" type="NinePatchRect" parent="DialogUI"]
+layout_mode = 0
+offset_top = 122.0
+offset_right = 288.0
+offset_bottom = 162.0
+texture = ExtResource("2_xqdi7")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Text" type="RichTextLabel" parent="DialogUI/MainBox"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 280.0
+offset_bottom = 35.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.973535, 0.973535, 0.973535, 1)
+theme_override_fonts/normal_font = ExtResource("3_36rwo")
+bbcode_enabled = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Arrow" type="Sprite2D" parent="DialogUI"]
+position = Vector2(279, 156)
+texture = ExtResource("4_gnprr")
+
+[node name="ChoiceBox" type="NinePatchRect" parent="DialogUI"]
+layout_mode = 2
+offset_left = 200.0
+offset_top = 58.0
+offset_right = 288.0
+offset_bottom = 154.0
+size_flags_vertical = 3
+texture = ExtResource("2_xqdi7")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ChoiceArrow" type="Sprite2D" parent="DialogUI/ChoiceBox"]
+position = Vector2(9, 36)
+rotation = -1.5708
+texture = ExtResource("4_gnprr")
+
+[node name="Choice" type="VBoxContainer" parent="DialogUI"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 58.0
+offset_right = 288.0
+offset_bottom = 154.0
+theme = ExtResource("5_36rwo")
+alignment = 1
+
+[node name="Button" type="Button" parent="DialogUI/Choice"]
+layout_mode = 2
+button_mask = 0
+text = "Choice 1"
+alignment = 0
+
+[node name="Button2" type="Button" parent="DialogUI/Choice"]
+layout_mode = 2
+text = "Choice 1"
+alignment = 0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Text_Sound" type="AudioStreamPlayer" parent="."]
+mix_target = 2
+bus = &"SFX"
+
+[node name="ClearTXT_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yn8wi")
+mix_target = 2
+bus = &"SFX"
